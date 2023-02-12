@@ -1,0 +1,54 @@
+<html lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <script src="login.js"></script>
+        <title>MAJOR PROJECT</title>
+        <link rel="stylesheet" href="login.css">
+    </head>
+    <body>
+        <div class="hero">
+            <div class="form-box">
+                <div class="button-box">
+                    <div id="btn"></div>
+                    <button type="button" class="toggle-btn" onclick="student()">Student</button>
+                    <button type="button" class="toggle-btn" onclick="admin()">Admin</button>
+                </div>
+               
+                <form id="student" class="input-group">
+                    <input type="text" class="input-field" placeholder="User ID" required>
+                    <input type="password" class="input-field" placeholder="Enter Password" required>
+                    <input type="checkbox" class="check-box"><span>Remember Password</span>
+                    <a href="dash_new.html" class="submit-btn">
+                        <button>Login</button></a>  
+                </form>
+                <form id="admin" class="input-group">
+                    <input type="text" class="input-field" placeholder="User Id" required>
+                    <form onsubmit='pswd()' name="f1",id="f1">
+                        <input type="password" class="input-field" placeholder="Enter Password" required>
+                    <input type="checkbox" class="check-box"><span>Remember Password</span>
+                    <a href="dash_new.html" class="submit-btn">
+                    <button>Login</button></a>
+            </div>
+        
+                </div>
+
+                <script>
+                    var x = document.getElementById("student");
+                    var y = document.getElementById("admin");
+                    var z = document.getElementById("btn");
+
+                    function admin(){
+                        x.style.left = "-400px";
+                        y.style.left = "50px";
+                        z.style.left = "110px";
+                    }
+
+                    function student(){
+                        x.style.left = "50px";
+                        y.style.left = "450px";
+                        z.style.left = "0";
+                    }
+                    </script>
+                    </body>
+                    </html>
