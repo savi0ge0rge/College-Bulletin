@@ -237,14 +237,11 @@ iframe {
 }
 
 .contact-form div {
-  font-size: 28px;
-  letter-spacing: 6px;
   color: #000000;
   transform: translateX(-50%) translateY(-50%) rotate(-90deg);
   padding-left: 60%;
   white-space: nowrap;
-  margin: 3%;
-  font-family: 'Poppins', sans-serif;
+  margin: 4%;
 }
 
 .contact-form {
@@ -263,9 +260,7 @@ iframe {
 }
 
 .contact-form label {
-  display: block;
-  font-family: 'Poppins', sans-serif;
-  margin-left: 10%;
+  margin-left: 12%;
 }
 
 .contact-form input[type="text"],
@@ -273,7 +268,7 @@ iframe {
 .contact-form textarea {
   width:80%;
   padding: 5px;
-  margin-left: 10%;
+  margin-left: 12%;
   border: none;
   border-radius: 5px;
 }

@@ -4,21 +4,48 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Upload Documents</title>
-  <link rel="stylesheet" href="upload.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 </head>
 <body>
-  <div class="wrapper">
-    <header>Upload Certificates</header>
-    <form action="#">
-      <input class="file-input" type="file" name="file" hidden>
-      <i class="fas fa-cloud-upload-alt"></i>
-      <p>Browse File to Upload</p>
-    </form>
-    <section class="progress-area"></section>
-    <section class="uploaded-area"></section>
-    <script src="upload.js"></script>
-  </div>
-
+    <input type="file" id="imagefile">
+    <canvas id="canvas" style="width:400px; height:400px;"></canvas>
+    <button id="button">Download PDF</button>
 </body>
-</html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script>
+
+  var imagefiile = document.getElementById("imagefile")
+  var canvas = document.getElementById("canvas")
+  var button = document.getElementById("button")
+  var ctx = canvas.getContext('2d')
+  button.onclick = handleImageToPdf
+
+  function handleImageToPdf(){
+    html2canvas(canvas,{
+      onrendered:function(canvas){
+        var imgData = canvas.toDataURL('image/png')
+        var doc = new jsPDF('p', 'mm')
+        doc.addImage(imgData,'PNG',10,10)
+        doc.save("image.pdf")
+      }
+    })
+  }
+  imagefile.addEventListener("change",handleImage,false)
+  function handleImage(e){
+    console.log(e)
+    var file = new FileReader()
+    reader.onload = function(event){
+      var image = new Image()
+      image.onload = function(){
+        canvas.width = image.width
+        canvas.height = image.height
+        ctx. drawImage(image,0,0)
+
+
+      }
+      image.src = event.target.result
+    }
+    reader.readAsDataURL(e.target.files[0])
+
+  }
+</script>

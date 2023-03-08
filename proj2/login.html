@@ -5,6 +5,8 @@
         <script src="login.js"></script>
         <title>MAJOR PROJECT</title>
         <link rel="stylesheet" href="login.css">
+			<center><h4><?php echo $fetch['firstname']." ". $fetch['lastname']?></h4></center>
+			<a href = "logout.php">Logout</a>
     </head>
     <body>
         <div class="hero">
@@ -19,7 +21,7 @@
                     <input type="text" class="input-field" placeholder="User ID" required>
                     <input type="password" class="input-field" placeholder="Enter Password" required>
                     <input type="checkbox" class="check-box"><span>Remember Password</span>
-                    <a href="dash_new.html" class="submit-btn">
+                    <a href="dash_student.html" class="submit-btn">
                         <button>Login</button></a>  
                 </form>
                 <form id="admin" class="input-group">
@@ -27,7 +29,7 @@
                     <form onsubmit='pswd()' name="f1",id="f1">
                         <input type="password" class="input-field" placeholder="Enter Password" required>
                     <input type="checkbox" class="check-box"><span>Remember Password</span>
-                    <a href="dash_new.html" class="submit-btn">
+                    <a href="dash_admin.html" class="submit-btn">
                     <button>Login</button></a>
             </div>
         
