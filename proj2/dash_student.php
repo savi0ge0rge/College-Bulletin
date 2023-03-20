@@ -1,5 +1,10 @@
 <?php
-session
+session_start();
+
+if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
+	header("location: login.php");
+	exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -8,12 +13,15 @@ session
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>FCRIT Bulletin</title>
+   <title>FCRIT Bulletin<?php $_SESSION['username']?></title>
    <link rel="stylesheet" href="dash_student.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </head>
 
 <body>
+	<?php require 'partials/_nav.php' ?>
+	Welcome<?php $_SESSION['username']?>
+	
    <div class="wrapper">
       <input type="checkbox" id="btn" hidden>
       <label for="btn" class="menu-btn">
@@ -31,15 +39,12 @@ session
             <li><a href="upload.html"><i class="fas fa-cog"></i>Upload Documents</a></li>
             <li><a href="chat_website.html"><i class="fas fa-stream"></i>Department chat</a></li>
             <li><a href="upload.html"><i class="fas fa-user"></i>Placement & Internships</a></li>
-            <li><a href="#"><i class="fas fa-globe-asia"></i>College News & Events</a></li>
+            <li><a href="eventnew.html"><i class="fas fa-globe-asia"></i>College News & Events</a></li>
             <img class="logo" src="fcritlogo.png" alt="">
             <div class="icons">
-               <a href="#"><i class="fab fa-facebook-f">
+               <a href="https://www.facebook.com/FCRITofficial/"><i class="fab fa-facebook-f">
                   </i></a>
-               <a href="#"><i class="fab fa-twitter">
-                  </i></a>
-               <a href="#"><i class="fab fa-github"></i></a>
-               <a href="#"><i class="fab fa-youtube"></i></a>
+               <a href="https://www.youtube.com/@fcritvashiofficial4407"><i class="fab fa-youtube"></i></a>
             </div>
          </ul>
 
