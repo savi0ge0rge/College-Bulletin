@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Placement and Internship</title>
+  <link rel="stylesheet" href="internships_admin.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+  </script>
+  <script>
+    $(document).ready(function () {
+      $('#btnAdd').click(function () {
+        var count = 1, first_row = $('#Row2');
+        while (count-- > 0) first_row.clone().appendTo('#blacklistgrid');
+      });
+      $('#btnAddCol').click(function () {
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>Upload Certificates</header>
+    <form action="#">
+      <input class="file-input" type="file" name="file" hidden>
+      <i class="fas fa-cloud-upload-alt"></i>
+      <p>Browse File to Upload</p>
+    </form>
+    <section class="progress-area"></section>
+    <section class="uploaded-area"></section>
+    <script src="internship_admin.js"></script>
+  </div>
+
+  <body>
+    <div class="placement-content">
+      <h2>Placement Updates</h2>
+      <div class="placement-container">
+        <form action="internships_admin.php" method="post" name="myform" id="myform">
+          <button type="button" class="btnAdd" id="btnAdd">Add Placement News/Updates</button></br></br>
+          <table id="blacklistgrid">
+            <tr class="row1" id="Row1">
+              <td>
+                Date
+              </td>
+              <td>
+                Time
+              </td>
+              <td>Information</td>
+            </tr>
+            <tr id="Row2">
+              <td>
+                <input type="date" name="date" id="date" class="date">
+              </td>
+              <td>
+                <input type="time" name="time" id="time" class="time">
+              </td>
+              <td>
+              <textarea type="text" class="news_events" placeholder="Enter Placement News/Updates" name="news_events"
+                id="news_events">
+                </textarea>
+              </td>
+            </tr>
+          </table>
+
+          <input class="btn" type="submit"></input>
+        </form>
+      </div>
+    </div>
+  </body>
+
+</html>
