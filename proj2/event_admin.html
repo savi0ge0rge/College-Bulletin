@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Admin Event</title>
+	<link rel="stylesheet" href="event_admin.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+	</script>
+	<script>
+		$(document).ready(function () {
+			$('#btnAdd').click(function () {
+				var count = 1, first_row = $('#Row2');
+				while (count-- > 0) first_row.clone().appendTo('#blacklistgrid');
+			});
+			$('#btnAddCol').click(function () {
+			});
+		});
+	</script>
+</head>
+
+<body>
+	<section>
+		<div class="leftBox">
+			<div class="content">
+				<h1>Events and Shows</h1>
+				<p>
+					<iframe
+						src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23E67C73&ctz=Asia%2FKolkata&src=Mjg3NGZmNDI2ZGMxYTllNTE4NmJmM2JlMTZjMGMzNGIyYjliZGI4MzZkNTJiN2RiMWEzNDA4NDgwYTJlNDU3M0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=ZW4uaW5kaWFuI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%23616161&color=%237986CB"
+						style="border-width:0" width="500" height="550" frameborder="0" scrolling="no"></iframe>
+				</p>
+			</div>
+		</div>
+		<div class="event-content">
+			<h2>Placement Updates</h2><br>
+			<form id="event-container" action="event_admin.php" method="post">
+				<button type="button" class="btnAdd" id="btnAdd">Add Placement News/Updates</button></br></br>
+				<table id="blacklistgrid">
+					<tr class="row1" id="Row1">
+						<td>Date</td>
+						<td>Month, Year</td>
+						<td>Event Name</td>
+					</tr>
+					<tr id="Row2">
+						<td>
+							<input type="number" name="date_time" id="date_time" class="date_time" min="1" max="31">
+						</td>
+						<td><input type="month" id="start" name="start" min="2022-12" max="2050-12"></td>
+						<td>
+							<textarea type="text" class="news_events" placeholder="Event Name, Information"
+								name="news_events" id="news_events"></textarea>
+						</td>
+					</tr>
+				</table>
+				<input class="btn" type="submit"></input>
+		</div>
+		</div>
+		</form>
+	</section>
+</body>
+
+</html>

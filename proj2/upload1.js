@@ -1,62 +1,71 @@
-const form = document.querySelector("form"),
-fileInput1 = document.querySelector(".file-input1"),
-progressArea1 = document.querySelector(".progress-area1"),
-uploadedArea1 = document.querySelector(".uploaded-area1");
+document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
+	const dropZoneElement = inputElement.closest(".drop-zone");
 
-form.addEventListener("click", () =>{
-  fileInput1.click();
+	dropZoneElement.addEventListener("click", (e) => {
+		inputElement.click();
+	});
+
+	inputElement.addEventListener("change", (e) => {
+		if (inputElement.files.length) {
+			updateThumbnail(dropZoneElement, inputElement.files[0]);
+		}
+	});
+
+	dropZoneElement.addEventListener("dragover", (e) => {
+		e.preventDefault();
+		dropZoneElement.classList.add("drop-zone--over");
+	});
+
+	["dragleave", "dragend"].forEach((type) => {
+		dropZoneElement.addEventListener(type, (e) => {
+			dropZoneElement.classList.remove("drop-zone--over");
+		});
+	});
+
+	dropZoneElement.addEventListener("drop", (e) => {
+		e.preventDefault();
+
+		if (e.dataTransfer.files.length) {
+			inputElement.files = e.dataTransfer.files;
+			updateThumbnail(dropZoneElement, e.dataTransfer.files[0]);
+		}
+
+		dropZoneElement.classList.remove("drop-zone--over");
+	});
 });
 
-fileInput1.onchange = ({target})=>{
-  let file = target.files[0];
-  if(file){
-    let fileName = file.name;
-    if(fileName.length >= 12){
-      let splitName = fileName.split('.');
-      fileName = splitName[0].substring(0, 13) + "... ." + splitName[1];
-    }
-    uploadFile(fileName);
-  }
-}
+/**
+ * Updates the thumbnail on a drop zone element.
+ *
+ * @param {HTMLElement} dropZoneElement
+ * @param {File} file
+ */
+function updateThumbnail(dropZoneElement, file) {
+	let thumbnailElement = dropZoneElement.querySelector(".drop-zone__thumb");
 
-function uploadFile(name){
-  let xhr = new XMLHttpRequest();
-  xhr.open("POST", "php/upload1.php");
-  xhr.upload.addEventListener("progress", ({loaded, total}) =>{
-    let fileLoaded = Math.floor((loaded / total) * 100);
-    let fileTotal = Math.floor(total / 1000);
-    let fileSize;
-    (fileTotal < 1024) ? fileSize = fileTotal + " KB" : fileSize = (loaded / (1024*1024)).toFixed(2) + " MB";
-    let progressHTML = `<li class="row">
-                          <i class="fas fa-file-alt"></i>
-                          <div class="content">
-                            <div class="details">
-                              <span class="name">${name} • Uploading</span>
-                              <span class="percent">${fileLoaded}%</span>
-                            </div>
-                            <div class="progress-bar">
-                              <div class="progress" style="width: ${fileLoaded}%"></div>
-                            </div>
-                          </div>
-                        </li>`;
-    uploadedArea1.classList.add("onprogress");
-    progressArea1.innerHTML = progressHTML;
-    if(loaded == total){
-      progressArea1.innerHTML = "";
-      let uploadedHTML = `<li class="row">
-                            <div class="content upload">
-                              <i class="fas fa-file-alt1"></i>
-                              <div class="details">
-                                <span class="name">${name} • Uploaded</span>
-                                <span class="size">${fileSize}</span>
-                              </div>
-                            </div>
-                            <i class="fas fa-check"></i>
-                          </li>`;
-      uploadedArea1.classList.remove("onprogress");
-      uploadedArea1.insertAdjacentHTML("afterbegin", uploadedHTML);
-    }
-  });
-  let data = new FormData(form);
-  xhr.send(data);
+	// First time - remove the prompt
+	if (dropZoneElement.querySelector(".drop-zone__prompt")) {
+		dropZoneElement.querySelector(".drop-zone__prompt").remove();
+	}
+
+	// First time - there is no thumbnail element, so lets create it
+	if (!thumbnailElement) {
+		thumbnailElement = document.createElement("div");
+		thumbnailElement.classList.add("drop-zone__thumb");
+		dropZoneElement.appendChild(thumbnailElement);
+	}
+
+	thumbnailElement.dataset.label = file.name;
+
+	// Show thumbnail for image files
+	if (file.type.startsWith("image/")) {
+		const reader = new FileReader();
+
+		reader.readAsDataURL(file);
+		reader.onload = () => {
+			thumbnailElement.style.backgroundImage = `url('${reader.result}')`;
+		};
+	} else {
+		thumbnailElement.style.backgroundImage = null;
+	}
 }

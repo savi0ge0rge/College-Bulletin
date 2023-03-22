@@ -1,22 +1,74 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-    <title>Welcome</title>
-  </head>
-  <body>
-    <?php require 'partials/_nav.php'?>
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  </body>
+<?php
+ include('session.php');
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<title>7topics - Login Demo</title>
+</head>
+<body>
+<header>
+	<nav>
+		<ul>
+			<li><a href="https://7topics.com">7topics</a></li>
+			<li><a href="https://7topics.com/creating-user-profile-page-using-php-and-mysql.html">Tutorial</a></li>
+		</ul>
+	</nav>
+</header>
+<div id="center">
+<div id="center-set"> -written by Rahul Ranjan
+<h1 align='center'>Welcome <?php echo $loggedin_session; ?>,</h1>
+You are now logged in. you can logout by clicking on signout link given below.
+<div id="contentbox">
+<?php
+$sql="SELECT * FROM member where mem_id=$loggedin_id";
+$result=mysqli_query($con,$sql);
+?>
+<?php
+while($rows=mysqli_fetch_array($result)){
+?>
+<div id="signup">
+<div id="signup-st">
+<form action="" method="POST" id="signin" id="reg">
+<div id="reg-head" class="headrg">Your Profile</div>
+<table border="0" align="center" cellpadding="2" cellspacing="0">
+<tr id="lg-1">
+<td class="tl-1"> <div align="left" id="tb-name">Reg id:</div> </td>
+<td class="tl-4"><?php echo $rows['mem_id']; ?></td>
+</tr>
+<tr id="lg-1">
+<td class="tl-1"><div align="left" id="tb-name">Username:</div></td>
+<td class="tl-4"><?php echo $rows['username']; ?></td>
+</tr>
+<tr id="lg-1">
+<td class="tl-1"><div align="left" id="tb-name">Name:</div></td>
+<td class="tl-4"><?php echo $rows['fname']; ?> <?php echo $rows['lname']; ?></td>
+</tr>
+<tr id="lg-1">
+<td class="tl-1"><div align="left" id="tb-name">Email id:</div></td>
+<td class="tl-4"><?php echo $rows['address']; ?></td>
+</tr>
+</table>
+<div id="reg-bottom" class="btmrg">Copyright &copy; 2015 7topics.com</div>
+</form>
+</div>
+</div>
+<div id="login">
+<div id="login-sg">
+<div id="st"><a href="logout.php" id="st-btn">Sign Out</a></div>
+<div id="st"><a href="deleteac.php" id="st-btn">Delete Account</a></div>
+</div>
+</div>
+<?php 
+// close while loop 
+}
+?>
+</div>
+</div>
+</div>
+</br>
+<div id="footer"><p> Copyright &copy; 2014-2015 7topics.com </p></div>
+</body>
 </html>

@@ -8,7 +8,7 @@
    animation: blur 0.5s ease-out;
    height: 100%;
    width: 100%;
-   background-image: url(Abstract1.jpg);
+   background-image: url(BG_image.jpg);
  
    background-position: center;
    background-size: 1600px 1000px;
@@ -219,6 +219,7 @@
    width: 30%;
    border-style: solid;
    border-width: 2px;
+   white-space: nowrap;
  }
 
  #chat_logout:hover {

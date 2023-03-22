@@ -1,6 +1,3 @@
-<?php
-session
-?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -8,7 +5,7 @@ session
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>FCRIT Bulletin</title>
+   <title>Studnet Dashboard</title>
    <link rel="stylesheet" href="dash_student.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </head>
@@ -25,13 +22,12 @@ session
             Dashboard
          </div>
          <ul class="list-items">
-            <li><a href="#"><i class="fas fa-home"></i>Home</a></li>
-            <li><a href="profile.html"><i class="fas fa-sliders-h"></i>Profile</a></li>
-
+            <li class="home"><a href="#"><i class="fas fa-home"></i>Home</a></li>
+            <li><a href="profile_student.html"><i class="fas fa-sliders-h"></i>Profile</a></li>
             <li><a href="upload.html"><i class="fas fa-cog"></i>Upload Documents</a></li>
             <li><a href="chat_website.html"><i class="fas fa-stream"></i>Department chat</a></li>
-            <li><a href="upload.html"><i class="fas fa-user"></i>Placement & Internships</a></li>
-            <li><a href="#"><i class="fas fa-globe-asia"></i>College News & Events</a></li>
+            <li><a href="internships_student.html"><i class="fas fa-user"></i>Placement & Internships</a></li>
+            <li><a href="event_student.html"><i class="fas fa-globe-asia"></i>College News & Events</a></li>
             <img class="logo" src="fcritlogo.png" alt="">
             <div class="icons">
                <a href="#"><i class="fab fa-facebook-f">
@@ -47,7 +43,7 @@ session
    </div>
    <div class="wrapper1">
       <header>
-         <img src="BG1.jpg" class="background">
+         <img src="BG_image.jpg" class="background">
          <div class="foreground">WELCOME<br>TO<br> FCRIT BULLETIN</div>
       </header>
       <section>
@@ -62,19 +58,36 @@ session
             width="500" height="300" style="border:0;" allowfullscreen="" loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"></iframe>
 
-         <div class="contact-form">
-            <form action="contactus.php" method="post">
-               <label for="name">Name:</label>
-               <input type="text" id="name" name="name" required>
-               <label for="email">Email:</label>
-               <input type="email" id="email" name="email" required>
-               <label for="message">Message:</label>
-               <textarea id="message" name="message" required placeholder="Type your message/query here"></textarea>
-               <div class="contact">Contact Us</div>
-               <input type="submit" value="Submit">
+
+         <button class="open-button" onclick="openForm()">Contact Us</button>
+
+         <div class="form-popup" id="myForm">
+            <form action="contactus.php" class="form-container" method="post">
+
+               <label for="name"><b>Name</b></label>
+               <input type="text" placeholder="Enter Name" name="name" id="name" required>
+
+               <label for="email"><b>Email</b></label>
+               <input type="text" placeholder="Enter Email" name="email" id="email" required>
+
+               <label for="text"><b>Message</b></label>
+               <input type="text" placeholder="Queries/Complaints/Suggestion/" name="message" id="message" required>
+
+               <button type="submit" class="btn">Submit</button>
+               <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
             </form>
          </div>
-        
+
+         <script>
+            function openForm() {
+               document.getElementById("myForm").style.display = "block";
+            }
+
+            function closeForm() {
+               document.getElementById("myForm").style.display = "none";
+            }
+         </script>
+
       </section>
       <section class="end">Developed by the Reserve Squad </section>
    </div>

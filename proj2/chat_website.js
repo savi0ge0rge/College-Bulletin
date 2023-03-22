@@ -4,7 +4,6 @@ window.onload = function () {
   var firebaseConfig = {
     apiKey: "AIzaSyCMzc4Jec0IGx5DCYPAtrPtBsui2t7MZM0",
     authDomain: "dept-chat.firebaseapp.com",
-    databaseURL: "https://dept-chat-default-rtdb.firebaseio.com",
     projectId: "dept-chat",
     storageBucket: "dept-chat.appspot.com",
     messagingSenderId: "302976666420",

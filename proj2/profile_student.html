@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="profile_student.css">
+</head>
+
+<body>
+  <div class="main-content">
+    <!-- Header -->
+    <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center"
+      style="min-height: 600px; background-image: url(https://png.pngtree.com/background/20210714/original/pngtree-science-or-technology-background-with-dynamic-particles-trendy-colorful-design-template-picture-image_1226624.jpg); background-size: cover; background-position: center top;">
+      <!-- Header container -->
+      <div class="container-fluid d-flex align-items-center">
+        <div class="row">
+          <div class="col-lg-7 col-md-10">
+            <h1 class="display-2 text-white">Hello, Agnelite</h1><br>
+            <a href="#!" class="btn btn-info">Edit profile</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Page content -->
+    <div class="container-fluid mt--7">
+      <div class="row">
+        <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
+          <div class="card card-profile shadow">
+            <div class="row justify-content-center">
+              <div class="col-lg-3 order-lg-2">
+                <div class="card-profile-image">
+                  <a href="#">
+                    <img src="#" class="rounded-circle">
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
+            </div>
+            <div class="card-body pt-0 pt-md-4">
+              <div class="row">
+                <div class="col">
+                  <div class="card-profile-stats d-flex justify-content-center mt-md-5">
+                  </div>
+                </div>
+              </div>
+              <div class="text-center">
+                <h3>
+                  Student
+                </h3>
+                <div>
+                  <i class="ni education_hat mr-2"></i>Fr. Conceicao Rodrigues Institute of Technology
+                </div>
+                <div class="h5 font-weight-300">
+                  <i class="ni location_pin mr-2"></i>Vashi, Navi Mumbai
+                </div>
+                <hr class="my-4">
+                <ul type="none">
+                  <i class="fa fa-github" style="font-size:18px"></i>
+                  <li>Github</li> <span class="text secondary"><a
+                      href="https://github.com/">www.github.com</a></span><br>
+                  <i class="fa fa-linkedin-square"></i>
+                  <li>LinkedIn</li> <span class="text-secondary"><a
+                      href="https://in.linkedin.com/">www.linkedin.com</a></span>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-8 order-xl-1">
+          <div class="card bg-secondary shadow">
+            <div class="card-header bg-white border-0">
+              <div class="row align-items-center">
+                <div class="col-8">
+                  <h3 class="mb-0">My Profile</h3>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <form action="profile1.php" method="post">
+                <h6 class="heading-small text-muted mb-4">User information</h6>
+                <div class="pl-lg-4">
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group focused">
+                        <label class="form-control-label" for="fullName">Full Name</label>
+                        <input name="fullName" type="text" id="fullName" class="form-control form-control-alternative"
+                          placeholder="Full Name" />
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="form-control-label" for="email">Email address</label>
+                        <input type="email" id="email" class="form-control form-control-alternative"
+                          placeholder="Email address"name="email" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group focused">
+                        <label class="form-control-label" for="roll_number">Roll Number</label>
+                        <input name="roll_number" type="number" id="roll_number" class="form-control form-control-alternative"
+                          placeholder="Roll Number" />
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group focused">
+                        <label class="form-control-label" for="mobile_number">Mobile Number</label>
+                        <input name="mobile_number" type="number" id="mobile_number" class="form-control form-control-alternative"
+                          placeholder="Mobile Number" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group focused">
+                        <label class="form-control-label" for="gender">Gender</label>
+                        <div>
+                          <label for="male" class="radio-inline"><input type="radio" name="gender" value="m"
+                              id="male" />Male</label>
+                          <label for="female" class="radio-inline"><input type="radio" name="gender" value="f"
+                              id="female" />Female</label>
+                          <label for="others" class="radio-inline"><input type="radio" name="gender" value="o"
+                              id="others" />Others</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group focused">
+                        <label class="form-control-label" for="dob">Date of Birth</label>
+                        <input name="dob" type="date" id="dob" class="form-control form-control-alternative"
+                          placeholder="Date of Birth" />
+                      </div>
+                    </div>
+
+                  </div>
+                  <hr class="my-4">
+                  <!-- Address -->
+                  <h6 class="heading-small text-muted mb-4">Contact information</h6>
+                  <div class="pl-lg-4">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group focused">
+                          <label class="form-control-label" for="address">Address</label>
+                          <input name="address" id="address" class="form-control form-control-alternative"
+                            placeholder="Home Address" value="Flat Number, Building, Street, Area" type="text" />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-4">
+                        <div class="form-group focused">
+                          <label class="form-control-label" for="city">City</label>
+                          <input name="city" type="text" id="city" class="form-control form-control-alternative"
+                            placeholder="City" />
+                        </div>
+                      </div>
+                      <div class="col-lg-4">
+                        <div class="form-group focused">
+                          <label class="form-control-label" for="country">Country</label>
+                          <input name="country" type="text" id="country" class="form-control form-control-alternative"
+                            placeholder="Country" />
+                        </div>
+                      </div>
+                      <div class="col-lg-4">
+                        <div class="form-group">
+                          <label class="form-control-label" for="pincode">Postal code</label>
+                          <input name="pincode" type="number" id="pincode" class="form-control form-control-alternative"
+                            placeholder="Postal code" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <hr class="my-4">
+                  <!-- Description -->
+                  <h6 class="heading-small text-muted mb-4">About me</h6>
+                  <div class="pl-lg-4">
+                    <div class="form-control-label">
+                      <label>About Me</label>
+                      <textarea rows="4" class="form-control form-control-alternative"
+                        placeholder="A few words about you ..."></textarea>
+                      <div><input class="bbtn" type="submit" value="Submit">
+                      </div>
+                    </div>
+                  </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
