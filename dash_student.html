@@ -5,9 +5,11 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Studnet Dashboard</title>
+   <title>Student Dashboard</title>
    <link rel="stylesheet" href="dash_student.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+
 </head>
 
 <body>
@@ -22,12 +24,24 @@
             Dashboard
          </div>
          <ul class="list-items">
-            <li class="home"><a href="#"><i class="fas fa-home"></i>Home</a></li>
-            <li><a href="profile_student.html"><i class="fas fa-sliders-h"></i>Profile</a></li>
-            <li><a href="upload.html"><i class="fas fa-cog"></i>Upload Documents</a></li>
-            <li><a href="chat_website.html"><i class="fas fa-stream"></i>Department chat</a></li>
-            <li><a href="internships_student.html"><i class="fas fa-user"></i>Placement & Internships</a></li>
-            <li><a href="event_student.html"><i class="fas fa-globe-asia"></i>College News & Events</a></li>
+            <li class="home">
+               <div class="head"><i class="fas fa-home"></i>Home</div>
+            </li>
+            <li><a href="profile_student.html"><i class="fas fa-user-circle" style="font-size:24px"></i>Profile</a></li>
+            <li><a href="upload_student.php"><i class="fas fa-cog"></i>Upload Documents</a></li>
+
+            <li>
+               <div class="popup" onclick="myFunction()">
+                  <div class="head"><i class="fas fa-comments"></i>Department chat</div><span class="popuptext"
+                     id="myPopup">
+                     <h4>Are you a Student or CR</h4>
+                     <button type="button" class="chat_stud" onclick="openStud()">Student</button>
+                     <button type="button" class="chat_cr" onclick="openCR()">CR</button>
+                  </span>
+               </div>
+            </li>
+            <li><a href="internships_student.php"><i class="fas fa-user"></i>Placement & Internships</a></li>
+            <li><a href="events_student.php"><i class="fas fa-globe-asia"></i>College News & Events</a></li>
             <img class="logo" src="fcritlogo.png" alt="">
             <div class="icons">
                <a href="#"><i class="fab fa-facebook-f">
@@ -42,6 +56,28 @@
       </nav>
    </div>
    <div class="wrapper1">
+      <div class="chat">
+         <div class="chat1" id="popupForm">
+            <div class="formContainer">
+               <h2>Please Enter the Password</h2>
+               <input type="password" name="password" id="password" placeholder="Your Password" required><br>
+               <button type="submit" class="btn" onclick="studSubmit()">Verify</button>
+               <button type="button" class="btn" onclick="studClose()">Close</button>
+            </div>
+         </div>
+
+         <div class="chat1" id="popupForm1">
+            <div class="formContainer">
+               <h2>Please Enter the Password</h2>
+               <input type="password" name="password" id="password1" placeholder="Your Password" required><br>
+               <button type="submit" class="btn" onclick="crSubmit()">Verify</button>
+               <button type="button" class="btn" onclick="crClose()">Close</button>
+            </div>
+         </div>
+      </div>
+      <script src="http://localhost/FCRIT_BULLETIN/dash_student.js"></script>
+
+
       <header>
          <img src="BG_image.jpg" class="background">
          <div class="foreground">WELCOME<br>TO<br> FCRIT BULLETIN</div>
@@ -59,7 +95,7 @@
             referrerpolicy="no-referrer-when-downgrade"></iframe>
 
 
-         <button class="open-button" onclick="openForm()">Contact Us</button>
+         <button class="open-button" onclick="openContact()">Contact Us</button>
 
          <div class="form-popup" id="myForm">
             <form action="contactus.php" class="form-container" method="post">
@@ -74,19 +110,11 @@
                <input type="text" placeholder="Queries/Complaints/Suggestion/" name="message" id="message" required>
 
                <button type="submit" class="btn">Submit</button>
-               <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+               <button type="button" class="btn cancel" onclick="closeContact()">Close</button>
             </form>
          </div>
 
-         <script>
-            function openForm() {
-               document.getElementById("myForm").style.display = "block";
-            }
 
-            function closeForm() {
-               document.getElementById("myForm").style.display = "none";
-            }
-         </script>
 
       </section>
       <section class="end">Developed by the Reserve Squad </section>

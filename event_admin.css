@@ -220,6 +220,7 @@ section .events ul li .details a:hover {
 td {
     padding-right: 15px;
     padding-left: 10px;
+ 
 }
 
 .btn {
@@ -235,8 +236,14 @@ td {
     cursor: pointer;
     margin:  20px 0px 20px 10px;
 }
+.event-content .row1 td {
+    color: white;
+    font-size: 18px;
+}
 
-.event-container .row1 {
-    padding-bottom: 20px;
-    font-size: 16px;
+.head {
+    font-size: 35px;
+    color: white;
+    margin-left: 10px;
+    margin-top: 5px;
 }
